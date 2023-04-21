@@ -6,7 +6,7 @@ import os
 import plotly.express as px
 import plotly.graph_objects as go
 import time
-import openpyxl
+# import openpyxl
 import altair as alt
 
 with st.sidebar:

@@ -31,7 +31,7 @@ elif mode == 'Mt.Olivet':
     st.header("Welcome to Mt.Olivet")
     st.write('Here you can preview our database')
 
-    excel_url = "https://1drv.ms/x/s!Agyh1QMsr6HwjlqkWPhVmAEFFKZy?e=1UnWeG"
+    
     # function to return age groupls
     def generate_age_group(df):
         age_group = []
@@ -107,7 +107,7 @@ elif mode == 'Mt.Olivet':
 #     finalDf[int_cols] = finalDf[int_cols].astype({"Parent's Contact": 'int',"Age": 'int'})
     
         return finalDf
-
+    excel_url = "https://1drv.ms/x/s!Agyh1QMsr6HwjlqkWPhVmAEFFKZy?e=1UnWeG"
     olivetDf = names(excel_url)
     head = olivetDf.head(20)
  

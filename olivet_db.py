@@ -52,51 +52,51 @@ elif mode == 'Mt.Olivet':
 
     # Function to read excel data
     @st.cache
-    def names(excel_workbook):            
+    def names(df):            
         cols = ['Center','First Name','Middle Name','Last Name','Gender','Date of Birth',"Parent's Name", "Parent's Contact","Age"]
         int_cols = ["Parent's Contact","Age"]
         # Beginners
-        beginners = pd.read_excel("olivet_db.xlsx", sheet_name='beginners').filter(cols)
+        beginners = pd.read_excel("df", sheet_name='beginners').filter(cols)
         beginners["age_group"] = generate_age_group(beginners)
     
         # class 1 and 2
-        class_1_2Df = beginners = pd.read_excel("olivet_db.xlsx", sheet_name='class_1_2').filter(cols)
+        class_1_2Df = beginners = pd.read_excel("df", sheet_name='class_1_2').filter(cols)
         class_1_2Df["age_group"] = generate_age_group(class_1_2Df)
     
         # class 3
-        class_3Df = pd.read_excel("olivet_db.xlsx", sheet_name='class_3').filter(cols)
+        class_3Df = pd.read_excel("df", sheet_name='class_3').filter(cols)
         class_3Df["age_group"] = generate_age_group(class_3Df)
     
         # class 4
-        class_4Df = pd.read_excel("olivet_db.xlsx", sheet_name='class_4').filter(cols)
+        class_4Df = pd.read_excel("df", sheet_name='class_4').filter(cols)
         class_4Df["age_group"] = generate_age_group(class_4Df)
     
         # class 5
-        class_5Df = pd.read_excel("olivet_db.xlsx", sheet_name='class_5').filter(cols)
+        class_5Df = pd.read_excel("df", sheet_name='class_5').filter(cols)
         class_5Df["age_group"] = generate_age_group(class_5Df)
     
         # class 6
-        class_6Df = pd.read_excel("olivet_db.xlsx", sheet_name='class_6').filter(cols)
+        class_6Df = pd.read_excel("df", sheet_name='class_6').filter(cols)
         class_6Df["age_group"] = generate_age_group(class_6Df)
     
         # jhs 1
-        jhs_1Df = pd.read_excel("olivet_db.xlsx", sheet_name='jhs_1').filter(cols)
+        jhs_1Df = pd.read_excel("df", sheet_name='jhs_1').filter(cols)
         jhs_1Df["age_group"] = generate_age_group(jhs_1Df)
     
         # timothy
-        timothyDf = pd.read_excel("olivet_db.xlsx", sheet_name='timothy').filter(cols)
+        timothyDf = pd.read_excel("df", sheet_name='timothy').filter(cols)
         timothyDf["age_group"] = generate_age_group(timothyDf)
     
         # sahara
-        saharaDf = pd.read_excel("olivet_db.xlsx", sheet_name='sahara').filter(cols)
+        saharaDf = pd.read_excel("df", sheet_name='sahara').filter(cols)
         saharaDf["age_group"] = generate_age_group(saharaDf)
     
         # ham
-        hamDf = pd.read_excel("olivet_db.xlsx", sheet_name='ham').filter(cols)
+        hamDf = pd.read_excel("df", sheet_name='ham').filter(cols)
         hamDf["age_group"] = generate_age_group(hamDf)
     
         # wesley grammar
-        wesgDf = pd.read_excel("olivet_db.xlsx", sheet_name='wesley_grammar').filter(cols)
+        wesgDf = pd.read_excel("df", sheet_name='wesley_grammar').filter(cols)
         wesgDf["age_group"] = generate_age_group(wesgDf)
     
         finalDf =  pd.concat([beginners, class_1_2Df, class_3Df, class_4Df, class_5Df, class_6Df, jhs_1Df, 
@@ -107,8 +107,9 @@ elif mode == 'Mt.Olivet':
 #     finalDf[int_cols] = finalDf[int_cols].astype({"Parent's Contact": 'int',"Age": 'int'})
     
         return finalDf
-    excel_url = "https://1drv.ms/x/s!Agyh1QMsr6HwjlqkWPhVmAEFFKZy?e=1UnWeG"
-    olivetDf = names(excel_url)
+        
+    excelDf = "olivet_db.xlsx"
+    olivetDf = names(excelDf)
     head = olivetDf.head(20)
  
     if st.button('submit'):

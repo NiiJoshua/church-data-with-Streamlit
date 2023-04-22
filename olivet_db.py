@@ -6,7 +6,7 @@ import os
 import plotly.express as px
 import plotly.graph_objects as go
 import time
-# import openpyxl
+import openpyxl
 import altair as alt
 
 with st.sidebar:
@@ -60,7 +60,7 @@ elif mode == 'Mt.Olivet':
         beginners["age_group"] = generate_age_group(beginners)
     
         # class 1 and 2
-        class_1_2Df = beginners = pd.read_excel(df, sheet_name='class_1_2').filter(cols)
+        class_1_2Df = pd.read_excel(df, sheet_name='class_1_2').filter(cols)
         class_1_2Df["age_group"] = generate_age_group(class_1_2Df)
     
         # class 3
